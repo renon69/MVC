@@ -1,15 +1,10 @@
+<!-- web routes -->
 <?php
 
-//web routes
+session_start();
 
-function show($stuff)
-{
-    echo "<pre>";
-    print_r($stuff);
-    echo "<pre>";
-}
-
-function splitURL()
+class App {
+    private function splitURL()
 {
     //If the 'url' parameter is not present, it defaults to 'home'.
     $URL = $_GET['url'] ?? 'home';
@@ -19,7 +14,7 @@ function splitURL()
 }
 
 
-function loadController()
+    private function loadController()
 {
     //loadController() function first calls the splitURL() function to retrieve the URL array. 
     $URL = splitURL();
@@ -37,5 +32,15 @@ function loadController()
     $filename = "../app/controllers/_404.php";
     require $filename;
 }
+
+}
+
+function show($stuff)
+{
+    echo "<pre>";
+    print_r($stuff);
+    echo "<pre>";
+}
+
 
 loadController();
