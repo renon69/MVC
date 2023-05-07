@@ -34,8 +34,8 @@ function loadController()
         require $filename;
     }
     else
-    //If the file does not exist, an error message "Controller not found" is displayed.
-    echo "controller not found";
+    $filename = "../app/controllers/_404.php";
+    require $filename;
 }
 
 loadController();
